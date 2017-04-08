@@ -15,9 +15,9 @@ func getHelloHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	// Routes consist of a path and a handler function.
-	r.HandleFunc("/", getHelloHandler).Methods("GET")
 
-	// Bind to a port and pass our router in
-	log.Fatal(http.ListenAndServe(":8000", r))
+	r.HandleFunc("/hello", getHelloHandler).Methods("GET")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+	http.Handle("/", r)
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
