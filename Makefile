@@ -1,2 +1,4 @@
 all:
-	bower install react
+	go get -d -v && go build && bower install react
+run:
+	./go-react
