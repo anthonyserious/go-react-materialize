@@ -48,18 +48,24 @@ class Modal extends React.Component {
       </div>
     )
   }
+
+  componentDidMount() {
+    $('#modal1').modal();
+  }
 }
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Modal modalId="modal1" header="I am a modal"></Modal>
+        <Modal modalId="reposModal" header="I am a modal"></Modal>
+        <Modal modalId="pipelinesModal" header="I am a modal"></Modal>
+        <Modal modalId="jobsModal" header="I am a modal"></Modal>
         <Nav></Nav>
         <div className="row">
-          <Card title="Repos" modalTarget="modal1"></Card>
-          <Card title="Pipelines" modalTarget="modal1"></Card>
-          <Card title="Jobs" modalTarget="modal1"></Card>
+          <Card title="Pipelines" modalTarget="pipelinesModal"></Card>
+          <Card title="Jobs" modalTarget="jobsModal"></Card>
+          <Card title="Repos" modalTarget="reposModal"></Card>
         </div>
       </div>
     )
