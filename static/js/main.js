@@ -42,7 +42,7 @@ class Modal extends React.Component {
             <p>A bunch of text</p>
           </div>
           <div className="modal-footer">
-            <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#" className="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    $('#modal1').modal();
+    $("#" + this.props.modalId).modal();
   }
 }
 
@@ -58,9 +58,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Modal modalId="reposModal" header="I am a modal"></Modal>
-        <Modal modalId="pipelinesModal" header="I am a modal"></Modal>
-        <Modal modalId="jobsModal" header="I am a modal"></Modal>
+        <Modal modalId="pipelinesModal" header="Pipelines"></Modal>
+        <Modal modalId="jobsModal" header="Jobs"></Modal>
+        <Modal modalId="reposModal" header="Repos"></Modal>
         <Nav></Nav>
         <div className="row">
           <Card title="Pipelines" modalTarget="pipelinesModal"></Card>
